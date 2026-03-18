@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartfarm Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="back">
+        <h1>SmartFarm Simulator</h1>
+
+        <div id="temperature" class="condition">
+            <img src="온도.svg" alt="온도" class="condition-icon" >
+            <p class="condition-name">Temperature</p>
+            <span id="temp-value" class="condition-value">22°C</span>
+        </div>
+        <div id="humidity" class="condition">
+            <img src="습도.svg" alt="습도" class="condition-icon" >
+            <p class="condition-name">Humidity</p>
+            <span id="humi-value" class="condition-value">70%</span>
+        </div>
+        <div id="illuminance" class="condition">
+            <img src="조도.svg" alt="조도" class="condition-icon" >
+            <p class="condition-name">Illuminance</p>
+            <span id="lux-value" class="condition-value">0Lux</span>
+        </div>
+
+        <div id="controlground">
+            <form action="#">
+                <div class="control-set">
+                    <input type="button" class="controlbtn" value="물 주기">
+                    <input type="range" id="waterbar" class="controlbar" min="0" max="500" value="0">
+                    <span class="rangenum" id="waternum">0ml</span>
+                </div>
+                <div class="control-set">
+                    <input type="button" class="controlbtn" value="조명 ON">
+                    <input type="range" id="lightbar" class="controlbar" min="0" max="100" value="0">
+                    <span class="rangenum" id="lightnum">0%</span>
+                </div>
+                <div class="control-set">
+                    <input type="button" class="controlbtn" value="냉난방 ON">
+                    <input type="range" id="hncbar" class="controlbar" min="15" max="27" value="22">
+                    <span class="rangenum" id="hncnum">15°C</span>
+                </div>
+            </form>
+        </div>
+
+        <div id="log"></div>
+        
+        <form action="#">
+            <input type="button" id="automatic" class="selfbtn" value="automatic">
+            <input type="button" id="manual" class="selfbtn" value="manual">
+        </form>
+        
+        <img src="스마트팜.jpg" alt="스마트팜" id="image">
+
+        <div id="chart-container">
+            <canvas id="envChart"></canvas>
+        </div>
+
+        <div id="manage">
+            <h2 class="m-title">Management Analytics</h2>
+    
+            <div class="m-container">
+                <div class="m-card-row">
+                    <div class="m-card">
+                        <span class="m-label">누적 전력량</span>
+                        <span class="m-val" id="p-usage">0.000 <small>kWh</small></span>
+                    </div>
+                    <div class="m-card">
+                        <span class="m-label">운영 비용(OPEX)</span>
+                        <span class="m-val" id="t-cost">0 <small>KRW</small></span>
+                    </div>
+                </div>
+
+                <div class="m-card-row">
+                    <div class="m-card">
+                        <span class="m-label">탄소 배출량</span>
+                        <span class="m-val" id="c-foot">0.000 <small>kgCO₂</small></span>
+                    </div>
+                    <div class="m-card">
+                        <span class="m-label">에너지 효율</span>
+                        <span class="m-val" id="e-eff">100<small>%</small></span>
+                    </div>
+                </div>
+
+                <div class="m-status-box">
+                    <p class="m-label">시스템 가동 상태</p>
+                    <div id="status-bar-bg">
+                        <div id="status-bar-fill"></div>
+                    </div>
+                    <p id="m-status-text">정상 운영 중 (Optimal)</p>
+                </div>
+            </div>
+        </div>
+
+
+        
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
