@@ -1,27 +1,61 @@
+말씀하신 내용
 html, body {
+
     margin: 0;
+
     padding: 0;
+
     width: 100%;
+
     height: 100%;
+
     background-color: #b9c595;
+
    
+
     overflow: auto; 
+
 }
 
-/* 데스크톱 (기본 설정) */
+
+
 #back {
-    width: 100%;       /* 너비 꽉 차게 */
-    height: 100vh;     /* 높이 꽉 차게 */
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;   /* 데스크톱에선 축소하지 않음 */
+
+    width: 2500px; 
+
+    height: 1300px; 
+
     
-    background-size: cover; /* 배경 이미지 꽉 차게 */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 내부 요소 중앙 정렬 */
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+
+
+    transform: translateX(-50%) scale(0.7);
+
+    transform-origin: top center;
+
+
+
+    background-image: url('backimage.jpg');
+
+    background-size: 100% 100%; 
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden; 
+
+    box-shadow: 0 0 100px rgba(0,0,0,0.2);
+
 }
+
+
 h1 {
     position:relative;
     margin: 0;
@@ -288,28 +322,3 @@ body {
 }
 
 #m-status-text { font-size: 14px; text-align: right; margin: 0; }
-
-@media screen and (max-width: 768px) and (orientation: portrait) {
-    body {
-        overflow: hidden; 
-        background-color: #b9c595;
-    }
-
-    #back {
-        /* 1. 크기를 고정하되 모바일 화면 높이에 맞춤 */
-        width: 2200px;  /* 내부 요소들이 넉넉히 배치될 만한 너비 */
-        height: 1300px;  /* 내부 요소들이 넉넉히 배치될 만한 높이 */
-        
-        position: fixed;
-        top: 50%;
-        left: 50%;
-
-        /* 2. 90도 돌리고, 화면에 꽉 차게 scale을 낮춤 (0.4~0.5 사이 조절) */
-        /* scale(0.45)는 요소들이 낑기지 않게 전체적으로 축소해줍니다. */
-        transform: translate(-50%, -50%) rotate(90deg) scale(0.2);
-        transform-origin: center center;
-
-        /* 3. 요소들이 삐져나가도 스크롤 생기지 않게 함 */
-        overflow: hidden; 
-    }
-}
