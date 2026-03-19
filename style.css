@@ -9,28 +9,21 @@ html, body {
 }
 
 #back {
-    /* 1. 도화지 크기를 대폭 확장 (요소들이 마음껏 퍼질 수 있는 광활한 공간) */
-    width: 2500px; 
-    height: 1300px; 
+    width: 95vw; 
+    max-width: 2500px; 
+    min-height: 90vh;
     
-    position: absolute;
-    left: 50%;
-    top: 0;
-
-    /* 2. [핵심] 넓어진 만큼 전체를 더 작게 축소해서 노트북 화면에 맞춤 */
-    /* 0.4는 원본의 40% 크기입니다. 화면이 너무 크면 0.35나 0.3으로 더 줄여보세요. */
-    transform: translateX(-50%) scale(0.7);
-    transform-origin: top center;
-
-    /* 배경 설정: 2500px 너비에 맞춰 배경 이미지 고정 */
+    position: relative; 
+    margin: 0 auto;
+    
+    transform: none; 
+    
     background-image: url('backimage.jpg');
-    background-size: 100% 100%; 
+    background-size: cover; 
     background-position: center;
-    background-repeat: no-repeat;
-    
-    /* 요소들이 박스 경계 밖으로 나가지 않게 가둠 */
     overflow: hidden; 
-    box-shadow: 0 0 100px rgba(0,0,0,0.2); /* 경계선 구분용 */
+    box-shadow: 0 0 100px rgba(0,0,0,0.2);
+    border-radius: 20px; 
 }
 h1 {
     position:relative;
@@ -299,4 +292,27 @@ body {
 
 #m-status-text { font-size: 14px; text-align: right; margin: 0; }
 
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        overflow: hidden; 
+    }
+
+    #back {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        
+        width: 100vh; 
+        height: 100vw;
+        
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center;
+    }
+    
+    h1 {
+        font-size: 30px;
+        left: 50px;
+        top: 40px;
+    }
+}
 
