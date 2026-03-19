@@ -306,7 +306,7 @@ body {
 
         /* 2. 90도 돌리고, 화면에 꽉 차게 scale을 낮춤 (0.4~0.5 사이 조절) */
         /* scale(0.45)는 요소들이 낑기지 않게 전체적으로 축소해줍니다. */
-        transform: translate(-50%, -50%) rotate(90deg) scale(0.45);
+        transform: translate(-50%, -50%) rotate(90deg) scale(0.2);
         transform-origin: center center;
 
         /* 3. 요소들이 삐져나가도 스크롤 생기지 않게 함 */
